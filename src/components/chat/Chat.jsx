@@ -7,7 +7,7 @@ import { useChatStore } from '../../lib/chatStore';
 import { useUserStore } from "../../lib/userStore";
 import upload from '../../lib/upload';
 
-const Chat = () => {
+const Chat = ({ onShowDetail }) => {
     const [open, setOpen] = useState(false);
     const [text, setText] = useState("");
     const [chat, setChat] = useState(null);
@@ -16,7 +16,7 @@ const Chat = () => {
         url: "",
     });
 
-    const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
+    const { chatId, user, isCurrentUserBlocked, isReceiverBlocked, changeChat } = useChatStore();
     const { currentUser } = useUserStore();
 
     const endRef = useRef(null);
@@ -105,9 +105,27 @@ const Chat = () => {
         setText("");
     };
 
+    // Responsive helper
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
+
+    const handleBack = () => {
+      // On mobile, return to chat list by clearing chatId and user
+      changeChat(null, null);
+    };
+
     return (
         <div className='chat'>
             <div className="top">
+                {isMobile && (
+                  <>
+                    <button className="back-btn" onClick={handleBack} style={{marginRight: 8}}>
+                      &#8592;
+                    </button>
+                    <button className="open-detail-btn" onClick={onShowDetail} style={{marginRight: 8}}>
+                      &#9776;
+                    </button>
+                  </>
+                )}
                 <div className="user">
                     <img src={user?.avatar || "./avatar.png"} />
                     <div className="texts">
@@ -140,7 +158,9 @@ const Chat = () => {
                 <div ref={endRef}></div>
             </div>
 
-            <div className="bottom">
+            {/* Hide .bottom on mobile if not in a chat */}
+            {(!isMobile || (chatId && user)) && (
+              <div className="bottom">
                 <div className="icons">
                     <label htmlFor="file">
                         <img src="./img.png" alt="img" />
@@ -163,7 +183,8 @@ const Chat = () => {
                     </div>
                 </div>
                 <button className='sendButton' onClick={handleSend} disabled={isCurrentUserBlocked || isReceiverBlocked}>Send</button>
-            </div> 
+              </div>
+            )}
         </div>
     );
 };

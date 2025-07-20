@@ -52,11 +52,11 @@ const Detail = () => {
                 </div>
                 <div className="photos">
                     <div className="photoItem">
-                        <div className="photoDetail">
+                        {/* <div className="photoDetail">
                         <img src="https://defenzo.tech/wp-content/uploads/2025/06/devenzo-logo1-scaled.png" alt="" />
                         <span>photo_2024_2.png</span>
                         </div>
-                    <img src="./download.png" alt="" className='icon'/>
+                    <img src="./download.png" alt="" className='icon'/> */}
                     </div>
                 </div>
             </div>

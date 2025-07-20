@@ -31,3 +31,63 @@ body {
     border-radius: 10px;
     background-color: rgba(17, 25, 50, 0.9);
 }
+
+/* Utility classes for responsive conditional rendering */
+.hide-mobile {
+    display: none !important;
+}
+
+@media (min-width: 601px) {
+    .hide-desktop {
+        display: none !important;
+    }
+
+    .hide-mobile {
+        display: initial !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .hide-desktop {
+        display: initial !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 98vw;
+        height: 98vh;
+        flex-direction: column;
+        min-width: unset;
+        min-height: unset;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 0;
+        background-size: cover;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+        min-width: unset;
+        min-height: unset;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .loading {
+        font-size: 22px;
+        padding: 20px;
+    }
+}

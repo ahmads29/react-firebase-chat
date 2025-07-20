@@ -70,3 +70,42 @@
         background-color: #dddddd35;
     }
 }
+
+@media (max-width: 900px) {
+    .login {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .login {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .login .item {
+        width: 100%;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .login .item form input,
+    .login .item form button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .login .item form label img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .login .separator {
+        width: 80%;
+        height: 2px;
+        margin: 10px auto;
+    }
+}

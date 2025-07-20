@@ -74,3 +74,63 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .chatList .search {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .chatList .item {
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .chatList {
+        min-width: 0;
+        min-height: 0;
+        font-size: 14px;
+    }
+
+    .chatList .search {
+        flex-direction: column;
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .chatList .searchBar {
+        gap: 8px;
+        padding: 6px;
+    }
+
+    .chatList .searchBar input {
+        font-size: 13px;
+    }
+
+    .chatList .searchBar img,
+    .chatList .add {
+        width: 20px;
+        height: 20px;
+        padding: 4px;
+    }
+
+    .chatList .item {
+        padding: 6px;
+        gap: 8px;
+    }
+
+    .chatList .item img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .chatList .item .texts span {
+        font-size: 13px;
+    }
+
+    .chatList .item .texts p {
+        font-size: 11px;
+    }
+}
